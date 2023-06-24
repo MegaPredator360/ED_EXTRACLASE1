@@ -185,8 +185,8 @@ int main() {
                     _factura -> agregarLinea(_linea);
                     _factura -> calcularMonto();
 
-                    IteradorFactura = _listaFactura.obtenerIterador();
-                    if (_validaciones.contarFacturas(IteradorFactura, Cedula) % 5 == 0)
+                    //IteradorFactura = _listaFactura.obtenerIterador();
+                    if (_cliente -> getCantidad() >= 5)
                     {
                         if (_factura -> getMonto() >= 50000)
                         {
@@ -194,15 +194,26 @@ int main() {
                             double nuevoTotal = _factura -> getMonto() - descuento;
                             _factura -> setMonto(nuevoTotal);
 
-                            IteradorFactura = _listaFactura.obtenerIterador();
+                            _cliente -> setCantidad(0);
 
                             cout << endl << GREEN << "¡Descuento aplicado!" << RESET << endl;
                             cout << "Monto descontado: $" << descuento << endl;
                         }
+                        else
+                        {
+                            _cliente -> setCantidad(_cliente -> getCantidad() + 1);
+                            cout << endl << "Monto total de compra: $" << _factura->getMonto() << endl;
+                            _listaFactura.agregar(_factura);
+                        }
+                    }
+                    else
+                    {
+                        _cliente -> setCantidad(_cliente -> getCantidad() + 1);
+                        cout << endl << "Monto total de compra: $" << _factura -> getMonto() << endl;
+                        _listaFactura.agregar(_factura);
                     }
 
-                    cout << endl << "Monto total de compra: $" << _factura->getMonto() << endl;
-                    _listaFactura.agregar(_factura);
+                    
                     cout << "----------------------------------------" << endl;
                     cout << GREEN << "¡La factura ha sido generada con exito!" << RESET << endl;
                 }

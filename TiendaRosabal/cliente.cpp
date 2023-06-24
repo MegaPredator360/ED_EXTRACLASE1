@@ -25,6 +25,11 @@ int cliente::getCantidad() const {
 	return _cantidad;
 }
 
+void cliente::setCantidad(int ca)
+{
+	_cantidad = ca;
+}
+
 cliente::cliente(ifstream& entrada) {
 	deserialize(entrada, this);
 }

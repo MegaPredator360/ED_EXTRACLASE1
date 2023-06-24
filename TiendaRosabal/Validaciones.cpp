@@ -196,25 +196,3 @@ void Validaciones::mostrarProductoSimple(iteradorLista<producto>* IteradorProduc
         cout << "----------------------------------------" << endl;
     }
 }
-
-int Validaciones::contarFacturas(iteradorLista<factura>* IteradorFactura, string Cedula)
-{
-    factura* _factura;
-    int cantidad = 0;
-
-    _factura = IteradorFactura -> proximoElemento();
-
-    while (_factura != nullptr)
-    {
-        if (_factura -> getCedCliente() == Cedula)
-        {
-            cantidad = cantidad + 1;
-        }
-        _factura = IteradorFactura -> proximoElemento();
-    }
-
-    if (_factura == nullptr)
-    {
-        return cantidad;
-    }
-}

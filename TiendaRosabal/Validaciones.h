@@ -15,5 +15,4 @@ public:
 	producto* obtenerProducto(iteradorLista<producto>* IteradorProducto, string Codigo);
 
 	void mostrarFacturas(iteradorLista<factura>* IteradorFactura);
-	int contarFacturas(iteradorLista<factura>* IteradorFactura, string Cedula);
 };

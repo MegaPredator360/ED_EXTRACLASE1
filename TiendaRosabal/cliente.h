@@ -12,6 +12,8 @@ public:
 	virtual string getCedula() const;
 	virtual string getNombre() const;
 	virtual int getCantidad() const;
+	virtual void setCantidad(int ca);
+
 	virtual string toString() const;
 	virtual string toStringSimple() const;
 	cliente(ifstream&);
